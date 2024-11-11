@@ -1,0 +1,70 @@
+/* General Container */
+.health-data-container {
+    background-color: #f9f7f7;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    color: #FFB6C1; /* Soft pink */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Form styling */
+.health-data-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-field, .textarea-field {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #FFB6C1; /* Soft pink border */
+    font-size: 1rem;
+    margin: 0;
+}
+
+.input-field:focus, .textarea-field:focus {
+    outline: none;
+    border-color: #FF69B4; /* Hot pink focus */
+}
+
+.textarea-field {
+    height: 100px;
+    resize: vertical;
+}
+
+.submit-button {
+    background-color: #FFB6C1; /* Soft pink */
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #FF69B4; /* Hot pink */
+}
+
+/* Chart Container */
+.chart-container {
+    margin-top: 30px;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container canvas {
+    border-radius: 12px;
+}
