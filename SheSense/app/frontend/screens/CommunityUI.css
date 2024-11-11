@@ -1,27 +1,66 @@
+/* Community UI Container */
 .CommunityUI {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  textarea {
-    width: 80%;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #a7dba9;
-    color: #FFB6C1;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #a2eca6;
-  }
-  
-  p {
-    font-size: 1.2em;
-    color: #FFB6C1(255, 0, 217, 0.933);
-  }
-  
+  text-align: center;
+  padding: 30px;
+  background-color: #f9f9f9; /* Soft light background */
+  border-radius: 15px; /* Rounded corners for the container */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Textarea Styling */
+textarea {
+  width: 80%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 10px; /* Rounded corners */
+  border: 1px solid #c0f1c2; /* Soft border */
+  font-size: 1em;
+  background-color: #c0f1c2; /* Very light background */
+  color: #4a4a4a; /* Soft text color */
+  transition: border 0.3s ease-in-out;
+}
+
+textarea:focus {
+  border-color: #f07cb6; /* Soft pink border on focus */
+  outline: none; /* Remove default focus outline */
+}
+
+/* Button Styling */
+button {
+  padding: 12px 25px;
+  background-color: #ff66b2; /* Soft pink background */
+  color: white;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff80cc; /* Slightly lighter pink on hover */
+}
+
+/* Paragraph Styling */
+p {
+  font-size: 1.2em;
+  color: #ff66b2; /* Soft pink color for text */
+  margin-top: 20px;
+}
+
+/* Input fields for any other forms */
+input[type="text"], input[type="date"] {
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px; /* Rounded corners */
+  border: 1px solid #dcdcdc; /* Soft border */
+  font-size: 1em;
+  margin-bottom: 10px;
+  background-color: #fafafa; /* Very light background */
+  color: #4a4a4a; /* Soft text color */
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+  border-color: #fe74b9; /* Soft pink border on focus */
+  outline: none;
+}
