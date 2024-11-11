@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
-from toxicity import check_toxicity
-from notion_publisher import publish_content_to_notion
-from confluence_publisher import publish_content_to_confluence 
+from services.toxicity import check_toxicity
+from services.notion_publisher import publish_content_to_notion
+from services.confluence_publisher import publish_content_to_confluence 
 
 app = Flask(__name__)
 
