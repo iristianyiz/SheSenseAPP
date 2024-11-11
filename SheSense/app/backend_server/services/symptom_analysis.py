@@ -1,7 +1,7 @@
 # /backend/services/symptom_analysis.py
 #  a Python script that will handle tokenizing the input and querying the Mayo Clinic API.
 #  This script will receive the text from your Node.js backend, process it, and return 
-# the results as a JSON response.
+#  the results as a JSON response.
 
 import sys
 import json
@@ -12,7 +12,7 @@ def query_mayo_clinic_api(symptom_keywords):
     """Queries the Mayo Clinic API for potential conditions based on symptoms."""
     url = "https://api.mayoclinic.org/v1/conditions"  # Adjust based on actual endpoint
     headers = {
-        "Authorization": "Bearer YOUR_API_KEY",  # Replace with your actual API key
+        "Authorization": "Bearer YOUR_API_KEY",  # Replace with actual API key
         "Accept": "application/json",
     }
     # You might need to adjust the query parameters based on the API documentation

@@ -6,8 +6,10 @@ const app = express();
 
 // Import route modules
 const symptomCheckerRoute = require('./routes/symptomCheckerRoute');
-const moodTrackingRoute = require('./routes/moodTrackingRoute');
 const communitySupportRoute = require('./routes/communitySupportRoute');
+const healthMonitoringRoute = require('./routes/healthMonitoringRoute');
+const mentalHealthRoutes = require('./routes/mentalHealthRoute');
+
 
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
@@ -16,6 +18,9 @@ app.use(bodyParser.json());
 app.use('/api', symptomCheckerRoute);  // Handles routes under /api/symptom-checker
 app.use('/api', moodTrackingRoute);    // Handles routes under /api/mood-tracking
 app.use('/api', communitySupportRoute); // Handles routes under /api/community-support
+app.use('/api', healthMonitoringRoute); // Handles routes under /api/health-monitoring
+app.use('/api/mentalHealth', mentalHealthRoutes); // Mental health route
+
 
 // Root endpoint for health check or other info (optional)
 app.get('/', (req, res) => {
