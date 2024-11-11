@@ -10,18 +10,18 @@
   
   button {
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #a7dba9;
+    color: #FFB6C1;
     border: none;
     cursor: pointer;
   }
   
   button:hover {
-    background-color: #8ee793;
+    background-color: #a2eca6;
   }
   
   p {
     font-size: 1.2em;
-    color: rgba(255, 0, 217, 0.933);
+    color: #FFB6C1(255, 0, 217, 0.933);
   }
   
