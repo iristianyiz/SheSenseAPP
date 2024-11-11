@@ -1,0 +1,27 @@
+.CommunityUI {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  textarea {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #8ee793;
+  }
+  
+  p {
+    font-size: 1.2em;
+    color: rgba(255, 0, 217, 0.933);
+  }
+  
