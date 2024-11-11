@@ -2,8 +2,8 @@
 // contains the logic for sentiment analysis and fetching resources. 
 // It interacts with Google Cloud Natural Language API and external APIs.
 
-const { LanguageServiceClient } = require('@google-cloud/language');
-const axios = require('axios');
+import { LanguageServiceClient } from '@google-cloud/language';
+import { get } from 'axios';
 
 const analyzeSentiment = async (text) => {
     const client = new LanguageServiceClient();
@@ -19,8 +19,8 @@ const getResources = async (mood) => {
     if (mood === 'negative') {
         try {
             // Fetch articles and podcasts (replace with actual URLs and API keys)
-            const articlesResponse = await axios.get('https://api.example.com/articles?mood=negative');
-            const podcastsResponse = await axios.get('https://api.example.com/podcasts?mood=negative');
+            const articlesResponse = await get('https://api.example.com/articles?mood=negative');
+            const podcastsResponse = await get('https://api.example.com/podcasts?mood=negative');
             return {
                 articles: articlesResponse.data.slice(0, 3),
                 podcasts: podcastsResponse.data.slice(0, 3),
@@ -33,4 +33,4 @@ const getResources = async (mood) => {
     return null;
 };
 
-module.exports = { analyzeSentiment, getResources };
+export default { analyzeSentiment, getResources };

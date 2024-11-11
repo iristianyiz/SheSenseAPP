@@ -1,17 +1,17 @@
 // the Main Server File
 
-const express = require('express');
-const bodyParser = require('body-parser');
+import express from 'express';
+import { json } from 'body-parser';
 const app = express();
 
 // Import route modules
-const symptomCheckerRoute = require('./routes/symptomCheckerRoute');
-const communitySupportRoute = require('./routes/communitySupportRoute');
-const healthMonitoringRoute = require('./routes/healthMonitoringRoute');
-const mentalHealthRoutes = require('./routes/mentalHealthRoute');
+import symptomCheckerRoute from './routes/symptomCheckerRoute';
+import communitySupportRoute from './routes/communitySupportRoute';
+import healthMonitoringRoute from './routes/healthMonitoringRoute';
+import mentalHealthRoutes from './routes/mentalHealthRoute';
 
 // Middleware to parse JSON request bodies
-app.use(bodyParser.json());
+app.use(json());
 
 // Mount routes at different paths
 app.use('/api', symptomCheckerRoute);  // Handles routes under /api/symptom-checker

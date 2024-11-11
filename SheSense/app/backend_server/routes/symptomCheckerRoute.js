@@ -2,7 +2,7 @@
 // /backend/routes/symptomCheckerRoute.js
 const express = require('express');
 const router = express.Router();
-const { analyzeSymptomsWithPython } = require('../services/symptomAnalysis');  // Import the Python integration
+const { analyzeSymptomsWithPython } = require('../services/symptomAnalysis').default;  // Import the Python integration
 
 // POST route to handle symptom data
 router.post('/symptom-checker', (req, res) => {

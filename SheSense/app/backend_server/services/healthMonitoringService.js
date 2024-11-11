@@ -3,8 +3,8 @@
 // contains the primary logic for predicting mood. The service would handle data retrieval 
 // (e.g., fetching user health records or recent entries) and then use the data to make a mood prediction.
 
-const HealthData = require('../models/healthDataModel');
-const tf = require('@tensorflow/tfjs-node'); // Use the Node.js version of TensorFlow
+import HealthData, { find } from '../models/healthDataModel';
+import { tensor2d, sequential, layers } from '@tensorflow/tfjs-node'; // Use the Node.js version of TensorFlow
 
 // Function to log health data
 async function logHealthData(userId, date, menstrualCycle, mood, symptoms) {
@@ -15,7 +15,7 @@ async function logHealthData(userId, date, menstrualCycle, mood, symptoms) {
 
 // Function to fetch health data for trend analysis
 async function fetchHealthData(userId) {
-    const data = await HealthData.find({ userId });
+    const data = await find({ userId });
     return data;
 }
 
@@ -33,19 +33,19 @@ function prepareTrendAnalysisData(data) {
 // Function to train a predictive model (simplified for mood prediction)
 async function trainPredictiveModel(data) {
     // Convert data to tensors
-    const xs = tf.tensor2d(data.map(item => [
+    const xs = tensor2d(data.map(item => [
         item.menstrualCycle.length, // Example encoding for menstrualCycle
         item.symptoms.length        // Number of symptoms as a feature
     ]));
 
-    const ys = tf.tensor2d(data.map(item => [
+    const ys = tensor2d(data.map(item => [
         item.mood === "happy" ? 1 : 0 // Binary classification for mood
     ]));
 
     // Define and compile the model
-    const model = tf.sequential();
-    model.add(tf.layers.dense({ units: 5, inputShape: [2], activation: 'relu' }));
-    model.add(tf.layers.dense({ units: 1, activation: 'sigmoid' }));
+    const model = sequential();
+    model.add(layers.dense({ units: 5, inputShape: [2], activation: 'relu' }));
+    model.add(layers.dense({ units: 1, activation: 'sigmoid' }));
     model.compile({ optimizer: 'adam', loss: 'binaryCrossentropy' });
 
     // Train the model
@@ -55,13 +55,13 @@ async function trainPredictiveModel(data) {
 
 // Function to predict mood based on model
 async function predictMood(model, menstrualCycle, symptoms) {
-    const input = tf.tensor2d([[menstrualCycle.length, symptoms.length]]);
+    const input = tensor2d([[menstrualCycle.length, symptoms.length]]);
     const prediction = model.predict(input);
     const predictionValue = await prediction.data(); // Gets prediction as array
     return predictionValue[0]; // Returns the predicted mood
 }
 
-module.exports = {
+export default {
     logHealthData,
     fetchHealthData,
     prepareTrendAnalysisData,

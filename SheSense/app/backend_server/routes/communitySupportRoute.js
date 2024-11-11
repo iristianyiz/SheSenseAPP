@@ -1,6 +1,6 @@
 // communitySupportRoute.js
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
 // POST route for community support (could be for posting a message)
 router.post('/community-support', (req, res) => {
@@ -18,4 +18,4 @@ router.post('/community-support', (req, res) => {
   });
 });
 
-module.exports = router;
+export default router;

@@ -1,5 +1,5 @@
 // /backend/services/symptomAnalysis.js
-const { exec } = require("child_process");
+import { exec } from "child_process";
 
 // Function to analyze the symptoms using Python
 function analyzeSymptomsWithPython(symptomsText, callback) {
@@ -23,6 +23,6 @@ function analyzeSymptomsWithPython(symptomsText, callback) {
   );
 }
 
-module.exports = {
+export default {
   analyzeSymptomsWithPython,
 };

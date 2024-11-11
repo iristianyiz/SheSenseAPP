@@ -1,9 +1,9 @@
 // backend_server/routes/healthDataRoute.js
 // This will house endpoints for logging and retrieving health data.
 
-const express = require('express');
-const router = express.Router();
-const healthMonitoringService = require('../services/healthMonitoringService');
+import { Router } from 'express';
+const router = Router();
+import healthMonitoringService from '../services/healthMonitoringService';
 
 // Endpoint to log health data
 router.post('/log', async (req, res) => {
@@ -29,4 +29,4 @@ router.get('/data/:userId', async (req, res) => {
 
 // Additional routes for trend analysis and predictive analytics: 
 
-module.exports = router;
+export default router;
