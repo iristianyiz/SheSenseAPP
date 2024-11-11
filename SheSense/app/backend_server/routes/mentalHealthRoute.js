@@ -2,9 +2,9 @@
 // journal entries and returning analysis results.
 
 // routes/mentalHealth.js
-const express = require('express');
-const router = express.Router();
-const MentalHealthService = require('../services/mentalHealthService');
+import { Router } from 'express';
+const router = Router();
+import { analyzeSentiment, getResources, generateResponse } from '../services/mentalHealthService';
 
 // POST route to analyze sentiment
 router.post('/analyze', async (req, res) => {
@@ -12,17 +12,17 @@ router.post('/analyze', async (req, res) => {
 
   try {
     // Analyze sentiment of the user's text
-    const sentimentScore = await MentalHealthService.analyzeSentiment(text);
+    const sentimentScore = await analyzeSentiment(text);
     const mood = sentimentScore < 0 ? 'negative' : 'positive';
 
     // Fetch resources if mood is negative
     let resources = [];
     if (mood === 'negative') {
-      resources = await MentalHealthService.getResources(mood);
+      resources = await getResources(mood);
     }
 
     // Generate response based on sentiment and resources
-    const responseMessage = await MentalHealthService.generateResponse(sentimentScore, resources);
+    const responseMessage = await generateResponse(sentimentScore, resources);
 
     // Return the analysis results
     res.json({
@@ -37,4 +37,4 @@ router.post('/analyze', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
