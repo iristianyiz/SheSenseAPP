@@ -36,7 +36,7 @@ const SymptomCheckerScreen = () => {
     <View style={styles.container}>
       <Text style={styles.header}>Symptom Checker</Text>
       <Text style={styles.description}>
-        Please describe your symptoms (maximum 250 words):
+        Please describe your symptoms in your own words...:
       </Text>
 
       <TextInput
