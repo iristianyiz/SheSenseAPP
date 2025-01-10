@@ -4,7 +4,7 @@ import { exec } from "child_process";
 // Function to analyze the symptoms using Python
 function analyzeSymptomsWithPython(symptomsText, callback) {
   exec(
-    `python3 /path/to/your/python/script/symptom_analysis.py "${symptomsText}"`,  // Make sure to replace with the correct file path
+    `python3 /path/to/your/python/script/symptom_analysis.py "${symptomsText}"`, 
     (error, stdout, stderr) => {
       if (error) {
         console.error(`exec error: ${error}`);
