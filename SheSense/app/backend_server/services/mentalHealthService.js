@@ -4,7 +4,8 @@
 
 // version 1: a. Chatbot integration: fully integrated with Rasa
 //            b. Personalization/Conversation: designed for dialog interaction (improved)
-import random
+// .py, not .js
+/* import random
 import requests
 from rasa_sdk import Action
 from google.cloud import language_v1
@@ -84,7 +85,7 @@ class ActionAnalyzeSentiment(Action):
             response = random.choice(positive_responses)
 
         dispatcher.utter_message(text=response)
-        return []
+        return [] */
 
 // version 2: 
 // mentalHealthService.js
