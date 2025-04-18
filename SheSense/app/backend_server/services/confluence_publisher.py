@@ -7,7 +7,7 @@ def publish_content_to_confluence(content):
     data = {
         "type": "page",
         "title": "Health Tip Submission",
-        "ancestors": [{"id": "parent_page_id"}],  # Add parent page ID if needed
+        "ancestors": [{"id": "parent_page_id"}],  
         "body": {
             "storage": {
                 "value": f"<h2>{content}</h2>",
