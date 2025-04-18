@@ -1,3 +1,8 @@
+# data/nlu.yml — The Language Learner
+# “Teach me what users might say, and what they mean.”
+# This file is where you give the bot examples of what people say and what intent those words carry.
+
+
 version: "3.1"
 nlu:
 - intent: express_mood
