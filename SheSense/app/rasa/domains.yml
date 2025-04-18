@@ -1,0 +1,15 @@
+version: "3.1"
+
+intents:
+  - express_mood
+  - greet
+  - goodbye
+
+actions:
+  - action_analyze_sentiment
+
+responses:
+  utter_greet:
+    - text: "Hey there! How are you feeling today?"
+  utter_goodbye:
+    - text: "Take care! I'm always here to listen."

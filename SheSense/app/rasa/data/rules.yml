@@ -1,0 +1,6 @@
+version: "3.1"
+rules:
+- rule: Respond to mood input
+  steps:
+    - intent: express_mood
+    - action: action_analyze_sentiment

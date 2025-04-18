@@ -1,0 +1,21 @@
+version: "3.1"
+nlu:
+- intent: express_mood
+  examples: |
+    - I'm feeling down
+    - I've had a rough day
+    - Everything is going great!
+    - I'm feeling awesome today
+    - I'm so stressed and tired
+
+- intent: greet
+  examples: |
+    - hey
+    - hi there
+    - hello!
+
+- intent: goodbye
+  examples: |
+    - bye
+    - talk to you later
+    - see you!
