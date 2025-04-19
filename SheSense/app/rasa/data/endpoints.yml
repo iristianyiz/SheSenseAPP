@@ -1,2 +1,3 @@
+# Connects custom logic to the rest of the bot
 action_endpoint:
   url: "http://localhost:5055/webhook"

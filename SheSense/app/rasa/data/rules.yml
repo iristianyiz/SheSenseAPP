@@ -1,6 +1,13 @@
+# “If this happens, always respond like this.
+# write strict rules for the bot — helpful for things like: FAQ; Safety flows; Required actions
 version: "3.1"
 rules:
-- rule: Respond to mood input
-  steps:
-    - intent: express_mood
-    - action: action_analyze_sentiment
+  - rule: Respond to mood input
+    steps:
+      - intent: express_mood
+      - action: action_analyze_sentiment
+
+  - rule: Say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye

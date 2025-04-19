@@ -1,3 +1,5 @@
+# Shows examples of conversations and strict logic
+
 version: "3.1"
 stories:
 - story: mood check-in path

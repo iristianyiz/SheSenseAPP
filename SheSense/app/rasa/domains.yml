@@ -1,3 +1,4 @@
+# Defines what the bot knows and how it can act
 version: "3.1"
 
 intents:
