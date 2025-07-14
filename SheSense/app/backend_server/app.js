@@ -4,6 +4,9 @@ import express from 'express';
 import { json } from 'body-parser';
 const app = express();
 
+import connectDB from './db.js';
+connectDB(); // <- establishes connection at server start
+
 // Import route modules
 import symptomCheckerRoute from './routes/symptomCheckerRoute';
 import communitySupportRoute from './routes/communitySupportRoute';
@@ -29,3 +32,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+

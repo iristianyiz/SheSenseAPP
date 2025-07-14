@@ -24,3 +24,14 @@ nlu:
     - bye
     - talk to you later
     - see you!
+
+# How rasa learns:
+# Tokenizes the sentence
+# Extracts features (e.g., word embeddings, position)
+# Runs it through a trained classifier (like DIETClassifier)
+# Assigns the most probable intent: express_mood
+
+# behind the scene:
+# Uses deep learning (e.g., Transformer layers) in models like DIETClassifier
+# Trained on the examples you provide in nlu.yml
+# Supports fuzzy matches, synonyms, and even multilingual inputs (with some setup)

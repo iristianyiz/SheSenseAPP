@@ -1,0 +1,52 @@
+from rasa_sdk import Action
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet
+import openai
+
+# Mocked retrieval function (you can plug in FAISS, Pinecone, etc.)
+def retrieve_docs(user_text):
+    # In a real setup, you'd embed user_text, search a vector DB, and return top results
+    return [
+        "It's okay to take breaks when feeling overwhelmed.",
+        "Mindfulness meditation can reduce anxiety and stress.",
+        "Connecting with friends or journaling may help lighten emotional load."
+    ]
+
+# Prompt generator for OpenAI
+def build_prompt(user_input, context_docs):
+    joined_docs = "\n".join(f"- {doc}" for doc in context_docs)
+    return f"""
+You are a supportive mental health assistant.
+
+The user said: "{user_input}"
+
+Here are helpful tips retrieved from our wellness library:
+{joined_docs}
+
+Based on this, respond with empathy, offer advice, and keep the tone warm and hopeful.
+"""
+
+class ActionRagResponse(Action):
+    def name(self):
+        return "action_rag_response"
+
+    def run(self, dispatcher, tracker, domain):
+        user_input = tracker.latest_message.get("text")
+
+        # Step 1: Retrieve relevant knowledge
+        docs = retrieve_docs(user_input)
+
+        # Step 2: Build the LLM prompt
+        prompt = build_prompt(user_input, docs)
+
+        # Step 3: Generate a response with OpenAI
+        openai.api_key = "YOUR_OPENAI_API_KEY"  # Replace with env var or config
+        completion = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[{"role": "user", "content": prompt}]
+        )
+        bot_reply = completion.choices[0].message.content.strip()
+
+        # Step 4: Send it back to the user
+        dispatcher.utter_message(text=bot_reply)
+        return []

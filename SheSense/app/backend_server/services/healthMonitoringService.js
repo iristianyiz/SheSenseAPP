@@ -19,7 +19,7 @@ async function fetchHealthData(userId) {
     return data;
 }
 
-// Function to render trend analysis data (e.g., preparing data for charts)
+// Function to render trend analysis data (e.g., preparing data for charts/visualization)
 function prepareTrendAnalysisData(data) {
     const labels = data.map(item => item.date.toLocaleDateString());
     const moodData = data.map(item => (item.mood === "happy" ? 1 : 0)); // Encode mood
@@ -33,18 +33,18 @@ function prepareTrendAnalysisData(data) {
 // Function to train a predictive model (simplified for mood prediction)
 async function trainPredictiveModel(data) {
     // Convert data to tensors
-    const xs = tensor2d(data.map(item => [
+    const xs = tensor2d(data.map(item => [ // input features
         item.menstrualCycle.length, // Example encoding for menstrualCycle
         item.symptoms.length        // Number of symptoms as a feature
     ]));
 
-    const ys = tensor2d(data.map(item => [
+    const ys = tensor2d(data.map(item => [ // moods (1 = happy, 0 = not happy)
         item.mood === "happy" ? 1 : 0 // Binary classification for mood
     ]));
 
     // Define and compile the model
-    const model = sequential();
-    model.add(layers.dense({ units: 5, inputShape: [2], activation: 'relu' }));
+    const model = sequential(); // a linear stack of layers
+    model.add(layers.dense({ units: 5, inputShape: [2], activation: 'relu' })); // dense (fully connected) neural network layers
     model.add(layers.dense({ units: 1, activation: 'sigmoid' }));
     model.compile({ optimizer: 'adam', loss: 'binaryCrossentropy' });
 
